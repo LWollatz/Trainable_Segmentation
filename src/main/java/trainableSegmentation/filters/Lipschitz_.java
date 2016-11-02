@@ -310,12 +310,17 @@ public class Lipschitz_ implements PlugInFilter
 	{
 		if (IJ.escapePressed()) return;
 		breaked = false;
+		//TODO: check if the following is relevant for anything. Note that d2 is never used...
 		Date d1, d2;
 		d1 = new Date();
 
 		IJ.showStatus("Initializing...");
 		m_stack_out = m_imp.createEmptyStack(); 
 		ImagePlus imp2 = null; 
+		
+		//get the image dimensions at this point to make this work as a filter...
+		ImageHeight = ip.getHeight();
+		ImageWidth = ip.getWidth();
 
 		for(int i = 0; ((i < m_scount) && (!breaked)); i++)
 		{
